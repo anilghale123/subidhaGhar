@@ -31,13 +31,17 @@
         <!-- Service Section -->
         <section class="my-8">
             <h1 class="text-2xl font-semibold">Services Section</h1>
+           
             <div class="my-4">
-                <input type="text" placeholder="Filter by Location" class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
-                <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
-            </div>
-            <div class="my-4">
-                <input type="text" placeholder="Filter by Category" class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
-                <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
+            <label for="category">Select a category:</label>
+<select id="category" class="w-30 h-10 px-4 py-2 border rounded-md">
+    <option value="plumber">Plumber</option>
+    <option value="carpenter">Carpenter</option>
+    <option value="tutor">Tutor</option>
+    <option value="electrician">Electrician</option>
+</select>
+          
+            <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
             </div>
 
             <!-- end of search n filter button -->
@@ -183,15 +187,7 @@
 
         </section>
 
-        <!-- Footer Section -->
-        <section class="mt-8">
-            <div class="footer-wrapper text-center">
-                <footer>
-                    <p class="text-gray-600">© All rights reserved to Sopranil</p>
-                </footer>
-            </div>
-        </section>
-        <!-- end of footer -->
+       
 
     </main>
 </body>
