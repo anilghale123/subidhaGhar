@@ -10,6 +10,8 @@
     @component('navbar', ['activeLink' => 'home']) @endcomponent
     
     @component('body') @endcomponent
+
+    @component('footer') @endcomponent
     <div>
         </div>
 </body>
