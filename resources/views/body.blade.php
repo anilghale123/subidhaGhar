@@ -34,12 +34,12 @@
            
             <div class="my-4">
             <label for="category">Select a category:</label>
-<select id="category" class="w-30 h-10 px-4 py-2 border rounded-md">
+    <select id="category" class="w-30 h-10 px-4 py-2 border rounded-md">
     <option value="plumber">Plumber</option>
     <option value="carpenter">Carpenter</option>
     <option value="tutor">Tutor</option>
     <option value="electrician">Electrician</option>
-</select>
+    </select>
           
             <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
             </div>
