@@ -20,7 +20,8 @@ return new class extends Migration
     $table->char('address',30);
     $table->integer('exp_year');
     $table->char('category',30);
-    $table->integer('price');
+    $table->decimal('price', 8, 2);  // Example: For storing prices with 2 decimal places
+    $table->char('status', 20);    $table->integer('price');
     $table->char('status',20);
 
     $table->foreignId('c_id')->constrained
