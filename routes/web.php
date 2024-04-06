@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ServiceController::class, 'index']); 
 
-Route::get('/electrisian', function() {
-    return view('electrisian');
-});
-
-Route::get('/plumber', function() {
-    return view('plumber');
-});
-
-Route::get('/tutor', function() {
-    return view('tutor');
-});
-
-Route::get('/carpenter', function() {
-    return view('carpenter');
-});
+Route::get('/sewa/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController

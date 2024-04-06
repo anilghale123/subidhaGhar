@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    @component('navbar', ['activeLink' => 'home']) @endcomponent
-    
-    @component('body') @endcomponent
+@component('navbar', ['activeLink' => 'home']) @endcomponent
+    
+    @component('body', ['categories' => $categories]) @endcomponent
 
-    @component('footer') @endcomponent
+    @component('footer') @endcomponent
+
     <div>
         </div>
 </body>

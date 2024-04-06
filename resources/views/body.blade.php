@@ -50,22 +50,22 @@
             <div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
                 
             <!-- electrisian card -->
+            @foreach($categories as $category)
                 <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">Electrician</h2>
+                    <h2 class="text-xl font-semibold">{{$category['name']}}</h2>
                     <img src="/electrisian.jpg" alt="electrisian">
-                    <p class="text-gray-700 mt-2">Details about the electrical service:</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>abc</li>
-                        <li>xyz</li>
-                        <li>hahaha</li>
-                    </ul>
-                    <button onclick="window.location.href='/electrisian'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                    <p class="text-gray-700 mt-2">{{$category['description']}}</p>
+                
+                    <button onclick="window.location.href='/sewa/{{ $category->id }}'" 
+            class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+        Explore
+    </button>                </div>
+                @endforeach
                 <!-- end of electrisian card -->
 
 
                 <!-- Plumber Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Plumber</h2>
                     <img src="/plumbing.jpg" alt="electrisian">
 
@@ -76,11 +76,11 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/plumber'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
                 <!-- end of plumber card -->
 
                 <!-- Carpenter Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Carpenter</h2>
                     <img src="/carpenter.jpg" alt="electrisian">
 
@@ -91,11 +91,11 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/carpenter'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
                 <!-- end of carpenter card -->
 
                 <!-- Tutor Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                 <h2 class="text-xl font-semibold">Tutor</h2>
 
                 <img src="/tutor.jpg" alt="tutor">
@@ -107,11 +107,11 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/tutor'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
                 <!-- end of tutor card -->
 
                 <!-- Plumber Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Plumber</h2>
                     <p class="text-gray-700 mt-2">Details about the plumbing service:</p>
                     <ul class="list-disc ml-6 mt-2">
@@ -120,10 +120,10 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/plumber'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
 
                 <!-- Carpenter Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Carpenter</h2>
                     <p class="text-gray-700 mt-2">Details about the plumbing service:</p>
                     <ul class="list-disc ml-6 mt-2">
@@ -132,10 +132,10 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/carpenter'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
 
                 <!-- Tutor Card -->
-                <div class="card bg-white rounded-lg p-4 mt-4">
+                <!-- <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Tutor</h2>
                     <p class="text-gray-700 mt-2">Details about the tutoring service:</p>
                     <ul class="list-disc ml-6 mt-2">
@@ -144,7 +144,7 @@
                         <li>hahaha</li>
                     </ul>
                     <button onclick="window.location.href='/tutor'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Explore</button>
-                </div>
+                </div> -->
 
 
 
