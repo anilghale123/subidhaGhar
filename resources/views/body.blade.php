@@ -16,11 +16,12 @@
                 <div class=" flex flex-col items-center p-5">
                     <!-- <h1 class="font-bold text-3xl   md:max-w-md p-5">Subidha Ghar</h1> -->
                     <h1 class="font-bold  md:max-w-md  md:text-left md:text-2xl lg:text-6xl ">At your door to solve all your
-                    <span class="text-green-500">housing </span>
-  <span class="text-red-500">problems...</span>                    </h1>
+                        <span class="text-green-500">housing </span>
+                        <span class="text-red-500">problems...</span>
+                    </h1>
                 </div>
                 <div class="">
-                <img src="/home.jpeg" alt="Service Image"  class="w-80 rounded-xl object-cover"> 
+                    <img src="/home.jpeg" alt="Service Image" class="w-80 rounded-xl object-cover">
 
                 </div>
             </div>
@@ -51,18 +52,18 @@
 
                 <!-- electrisian card -->
                 @foreach($categories as $category)
-    <div class="card bg-white rounded-lg p-4 mt-4">
-        <h2 class="text-xl font-semibold">{{ $category->name }}</h2> 
-        {{-- Dynamic Image Path --}}
-        <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}"> 
+                <div class="card bg-white rounded-lg p-4 mt-4">
+                    <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
+                    
+                    <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
 
-        <p class="text-gray-700 mt-2">{{ $category->description }}</p>
+                    <p class="text-gray-700 mt-2">{{ $category->description }}</p>
 
-        <button onclick="window.location.href='/sewa/{{ $category->id }}'" class=" mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    <button onclick="window.location.href='/sewa/{{ $category->id }}'" class=" mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                         Explore
                     </button>
-    </div>
-@endforeach
+                </div>
+                @endforeach
 
 
             </div>

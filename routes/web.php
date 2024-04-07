@@ -2,19 +2,22 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Models\Serviceprovider;
+use Illuminate\Http\Request;
 
 Route::get('/', [ServiceController::class, 'index']); 
 
 Route::get('/sewa/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
+
+// Route::prefix('admin')->group(function () {
+//     Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
+
+//     Route::post('/serviceProvider/submit', [adminController::class, 'store'])->name('admin.serviceProvider.store'); 
+// });
+
+     Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
+
+     Route::post('/submit-form', [adminController::class, 'store']);
+    
