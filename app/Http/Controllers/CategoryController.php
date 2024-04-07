@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    //for fetching dropdown itms from databse 
+    public function index()
+    {
+        $categories = Category::all();
+        
+        return view('body', compact('categories'));
+
+
+    }
    
     public function show($id)
     {
