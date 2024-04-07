@@ -16,8 +16,8 @@
                 <div class=" flex flex-col items-center p-5">
                     <!-- <h1 class="font-bold text-3xl   md:max-w-md p-5">Subidha Ghar</h1> -->
                     <h1 class="font-bold  md:max-w-md  md:text-left md:text-2xl lg:text-6xl ">At your door to solve all your
-                        <span class="text-green-500">housing </span>
-                        <span class="text-red-500">problems...</span>
+                        <span class="text-green-500">Housing </span>
+                        <span class="text-red-500">Problems...</span>
                     </h1>
                 </div>
                 <div class="">
