@@ -41,8 +41,12 @@
                 <label for="category" class="block text-gray-700 font-semibold mb-2">Category:</label>
                 <select class="form-select w-full border-2" id="category" name="category" required>
                     <option selected disabled>Select a category...</option>
-                    <option value="Plumber" name = "Plumber">Plumber</option>
-                    <option value="Electrician" name = "Electrician">Electrician</option>
+                    @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ ($category->id == old('category')) ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+              
                     <!-- Add your category options here -->
                 </select>
             </div>
@@ -62,15 +66,24 @@
     </div>
 
     <div class="">
-                <label for="c_id" class="block text-gray-700 font-semibold mb-2 ">c_id:</label>
-                <input type="number" class="form-input w-full border-2" id="c_id" name="c_id" value="1" required>
-            </div>
+        <label for="selected_c_id" class="block text-gray-700 font-semibold mb-2">Selected c_id:</label>
+        <input type="text" class="form-input w-full border-2 bg-gray-200" id="selected_c_id" name="selected_c_id" readonly required>
+    </div>
 
             <button type="submit" class="mt-5 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
                 Submit
             </button>
         </form>
     </div>
+
+    <script>
+        const categorySelect = document.getElementById('category');
+        const selectedCIdInput = document.getElementById('selected_c_id');
+
+        categorySelect.addEventListener('change', function() {
+            selectedCIdInput.value = this.value;
+        });
+    </script>
 </body>
 
 </html>

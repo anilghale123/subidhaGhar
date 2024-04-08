@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serviceprovider;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -10,7 +11,9 @@ class adminController extends Controller
 {
     function index()
     {
-        return view('admin.ServiceProvider');
+        $categories = Category::all(); // Fetch all categories from the database
+
+        return view('admin.ServiceProvider', compact('categories'));
     }
 
     public function store(Request $request)
