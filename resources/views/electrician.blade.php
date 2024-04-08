@@ -33,7 +33,7 @@
                 <!-- Plumber Card -->
                 <div class="card bg-white rounded-lg p-4 mt-4">
                     <h2 class="text-xl font-semibold">Swornim Thapa</h2>
-                    <img src="/electrisian.jpg" alt="electrisian">
+                    <img src="/carpendet.jpg" alt="electrisian">
                     <p class="text-gray-700 mt-2">Phone Number: 988787823</p>
                     <p class="text-gray-700 mt-2">Location : Mulpani</p>
                     <p class="text-gray-700 mt-2">Rating : ⭐⭐⭐⭐</p>
