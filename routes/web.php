@@ -1,34 +1,23 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Serviceprovider;
+use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', [ServiceController::class, 'index']); 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/sewa/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
 
-Route::get('/electrisian', function() {
-    return view('electrisian');
-});
+// Route::prefix('admin')->group(function () {
+//     Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
 
-Route::get('/plumber', function() {
-    return view('plumber');
-});
+//     Route::post('/serviceProvider/submit', [adminController::class, 'store'])->name('admin.serviceProvider.store'); 
+// });
 
-Route::get('/tutor', function() {
-    return view('tutor');
-});
+     Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
 
-Route::get('/carpenter', function() {
-    return view('carpenter');
-});
+     Route::post('/submit-form', [adminController::class, 'store']);
+    
