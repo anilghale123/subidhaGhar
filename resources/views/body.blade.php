@@ -16,8 +16,8 @@
                 <div class=" flex flex-col items-center p-5">
                     <!-- <h1 class="font-bold text-3xl   md:max-w-md p-5">Subidha Ghar</h1> -->
                     <h1 class="font-bold  md:max-w-md  md:text-left md:text-2xl lg:text-6xl ">At your door to solve all your
-                        <span class="text-green-500">housing </span>
-                        <span class="text-red-500">problems...</span>
+                        <span class="text-green-500">Housing </span>
+                        <span class="text-red-500">Problems...</span>
                     </h1>
                 </div>
                 <div class="">
@@ -34,41 +34,40 @@
             <h1 class="text-2xl font-semibold">Services Section</h1>
 
             <div class="my-4">
-
+            <form method="GET" action="{{ route('search') }}">
                 <label for="category">Select a category:</label>
-                
-                <select id="category" class="w-30 h-10 px-4 py-2 border rounded-md">
-                @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
-                    <!-- <option value="plumber">Plumber</option>
-                    <option value="carpenter">Carpenter</option>
-                    <option value="tutor">Tutor</option>
-                    <option value="electrician">Electrician</option> -->
+                <select id="category" name="category" class="w-30 h-10 px-4 py-2 border rounded-md">
+                    <option value="all" selected>All</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
 
-                <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
+    <button type="submit" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Filter</button>
+</form>
+
             </div>
 
             <!-- end of search n filter button -->
 
-            <!-- card wrapper starts here -->
-            <div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
+           <!-- card wrapper starts here -->
+<div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
+            @if($results->isEmpty())
+                <p>No results found.</p>
+            @else
+            @foreach($results as $category)
+            <div class="card bg-white rounded-lg p-4 mt-4">
+                <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
+                <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
+                <p class="text-gray-700 mt-2">{{ $category->description }}</p>
+                <button onclick="window.location.href='/sewa/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    Explore
+                </button>
+            </div>
+            @endforeach
+            @endif
+</div>
 
-                <!-- electrisian card -->
-                @foreach($categories as $category)
-                <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
-                    
-                    <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
-
-                    <p class="text-gray-700 mt-2">{{ $category->description }}</p>
-
-                    <button onclick="window.location.href='/sewa/{{ $category->id }}'" class=" mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                        Explore
-                    </button>
-                </div>
-                @endforeach
 
 
             </div>

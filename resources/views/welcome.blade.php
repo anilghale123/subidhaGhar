@@ -9,7 +9,7 @@
 <body>
 @component('navbar', ['activeLink' => 'home']) @endcomponent
     
-    @component('body', ['categories' => $categories]) @endcomponent
+    @component('body', ['categories' => $categories, 'results' => $results]) @endcomponent
 
     @component('footer') @endcomponent
 
