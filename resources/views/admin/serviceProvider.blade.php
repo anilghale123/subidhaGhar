@@ -14,7 +14,7 @@
 
 
     <div class="container mx-auto p-4">
-    <form method="POST" action="/submit-form" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <form method="POST" action="/submit-form" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md" enctype="multipart/form-data">
             @csrf
             <h1>Service Provider Form</h1>
             <div class="">
@@ -42,11 +42,11 @@
                 <select class="form-select w-full border-2" id="category" name="category" required>
                     <option selected disabled>Select a category...</option>
                     @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ ($category->id == old('category')) ? 'selected' : '' }}>
+                    <option value="{{ $category->id }}" name="{{ $category->name }}" {{ ($category->id == old('category')) ? 'selected' : '' }}>
                         {{ $category->name }}
                     </option>
-                @endforeach
-              
+                    @endforeach
+
                     <!-- Add your category options here -->
                 </select>
             </div>
@@ -57,22 +57,28 @@
             </div>
 
             <div class="mb-3">
-      
-            <label for="booking_status" class="form-label">Booking Status:</label>
-        <select class="form-select" id="booking_status" name="status">
-            <option value="available" name = "available">Available</option> 
-            <option value="unavailable" name = "unavailable">Unavailable</option>
-        </select>
-    </div>
 
-    <div class="">
-        <label for="selected_c_id" class="block text-gray-700 font-semibold mb-2">Selected c_id:</label>
-        <input type="text" class="form-input w-full border-2 bg-gray-200" id="selected_c_id" name="selected_c_id" readonly required>
-    </div>
+                <label for="booking_status" class="form-label">Booking Status:</label>
+                <select class="form-select" id="booking_status" name="status">
+                    <option value="available" name="available">Available</option>
+                    <option value="unavailable" name="unavailable">Unavailable</option>
+                </select>
+            </div>
+
+            <div class="">
+                <label for="selected_c_id" class="block text-gray-700 font-semibold mb-2">Selected c_id:</label>
+                <input type="text" class="form-input w-full border-2 bg-gray-200" id="selected_c_id" name="c_id" readonly required>
+            </div>
+
+            <div class="">
+                <label for="image" class="block text-gray-700 font-semibold mb-2">Image:</label>
+                   <input type="file" class="form-input w-full border-2" id="image" name="image" required>
+            </div>
 
             <button type="submit" class="mt-5 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
                 Submit
             </button>
+
         </form>
     </div>
 
