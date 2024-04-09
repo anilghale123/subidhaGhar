@@ -8,6 +8,7 @@ use App\Models\Serviceprovider;
 use Illuminate\Http\Request;
 
 Route::get('/', [ServiceController::class, 'index']); 
+Route::get('/categories', [CategoryController::class, 'search'])->name('search');
 
 Route::get('/sewa/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
 
