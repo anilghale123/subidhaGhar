@@ -53,7 +53,7 @@ class adminController extends Controller
         $request->image->move(public_path('images'), $imageName);
     
        
-        // $serviceProvider->image = 'images/' . $imageName; // Prepend 'images/' 
+        $serviceProvider->image = '/images/' . $imageName;
         $serviceProvider->save();
     
     } else {
