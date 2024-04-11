@@ -46,7 +46,8 @@ public function show($id)
     $category = Category::findOrFail($id);
 
     // Fetch related service providers 
-    $serviceProviders = Serviceprovider::all();
+    //$serviceProviders = Serviceprovider::all();
+    $serviceProviders = $category->serviceProviders;
 
 
     return view('service', compact('category', 'serviceProviders')); 

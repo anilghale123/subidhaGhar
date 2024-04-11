@@ -18,16 +18,18 @@
             <!-- <h1 class="text-2xl font-semibold">Services Section</h1> -->
            
             <!-- card wrapper starts here -->
+            <
             <div class="grid grid-cols-4  gap-5">
             @foreach($serviceProviders as $serviceProvider)
+            
 
                 <div class="card bg-red-100 rounded-lg p-4 mt-4 overflow-hidden ">
                     <h2 class="text-xl font-semibold">{{ $serviceProvider->name }}</h2>
-                    <img src="/electrisian.jpg" alt="electrisian">
-                    <p class="text-gray-700 mt-2">Phone Number: 988787823</p>
-                    <p class="text-gray-700 mt-2">Location : Mulpani</p>
+                    <img src="/electrisian.jpg" alt="{{ $serviceProvider->category }}">
+                    <p class="text-gray-700 mt-2">Phone Number:{{ $serviceProvider->phone_no }}</p>
+                    <p class="text-gray-700 mt-2">Location : {{ $serviceProvider->address }}</p>
                     <p class="text-gray-700 mt-2">Rating : ⭐⭐⭐⭐</p>
-                    <p class="text-gray-700 mt-2">Active Status: Booked</p>
+                    <p class="text-gray-700 mt-2">Active Status: {{ $serviceProvider->status }}</p>
                   <button onclick="window.location.href='/electrisian'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Book Now</button>
                 </div>
                 @endforeach
