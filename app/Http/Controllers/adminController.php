@@ -46,6 +46,8 @@ class adminController extends Controller
     $serviceProvider->price = $validatedData['price'];
     $serviceProvider->status = $validatedData['status'];
     $serviceProvider->c_id = $validatedData['c_id'];
+    // $serviceProvider->image = $validatedData['image'];
+
 
     
     // Handle the image upload
@@ -53,8 +55,8 @@ class adminController extends Controller
         // dd($request->file('image')); // Debugging line to check if the file is received
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('images'), $imageName);
-        dd($imageName);
-        // $serviceProvider->image = $imageName; // Uncomment this line if you have an 'image' column in your model
+        // dd($imageName);
+        $serviceProvider->image = $imageName; // Uncomment this line if you have an 'image' column in your model
     } else {
         dd('No image file received'); 
     }

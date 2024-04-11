@@ -22,6 +22,7 @@ return new class extends Migration
     $table->char('category',30);
     $table->decimal('price', 8, 2);  // Example: For storing prices with 2 decimal places
     $table->char('status', 20);    
+    $table->char('image');
   
 
     $table->foreignId('c_id')->constrained
