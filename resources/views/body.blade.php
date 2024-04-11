@@ -51,7 +51,7 @@
             <!-- end of search n filter button -->
 
            <!-- card wrapper starts here -->
-<div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
             @if($results->isEmpty())
                 <p>No results found.</p>
             @else
@@ -60,7 +60,7 @@
                 <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
                 <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
                 <p class="text-gray-700 mt-2">{{ $category->description }}</p>
-                <button onclick="window.location.href='/sewa/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                <button onclick="window.location.href='/service/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                     Explore
                 </button>
             </div>

@@ -20,8 +20,7 @@ class adminController extends Controller
 
     public function store(Request $request)
 {
-    // dd(("form submitted"));
-    // Validate the form data
+    
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
         'phone_no' => 'required', 
@@ -37,7 +36,7 @@ class adminController extends Controller
     // Create a new Serviceprovider instance
     $serviceProvider = new Serviceprovider();
 
-    // Fill in the data from the form submission
+    
     $serviceProvider->name = $validatedData['name'];
     $serviceProvider->phone_no = $validatedData['phone_no'];
     $serviceProvider->address = $validatedData['address'];
@@ -48,13 +47,15 @@ class adminController extends Controller
     $serviceProvider->c_id = $validatedData['c_id'];
 
     
-    // Handle the image upload
-    if ($request->hasFile('image')) {
-        // dd($request->file('image')); // Debugging line to check if the file is received
+    
+    if ($request->hasFile('image')) {   
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('images'), $imageName);
-        dd($imageName);
-        // $serviceProvider->image = $imageName; // Uncomment this line if you have an 'image' column in your model
+    
+       
+        // $serviceProvider->image = 'images/' . $imageName; // Prepend 'images/' 
+        $serviceProvider->save();
+    
     } else {
         dd('No image file received'); 
     }
