@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Serviceprovider;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -40,17 +41,16 @@ class CategoryController extends Controller
 }
 
    
-    public function show($id)
-    {
-        $category = Category::findOrFail($id);
+public function show($id)
+{
+    $category = Category::findOrFail($id);
 
-        $viewName = strtolower($category->name);  // Generate view name dynamically 
+    // Fetch related service providers 
+    //$serviceProviders = Serviceprovider::all();
+    $serviceProviders = $category->serviceProviders;
 
-        // Handle cases where the view file might not exist
-        if (!view()->exists($viewName)) { 
-            return view('error.404'); // Or another suitable error view
-        }
 
-        return view($viewName, compact('category')); 
-    }
+    return view('service', compact('category', 'serviceProviders')); 
+}
+
 }

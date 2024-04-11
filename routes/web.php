@@ -10,13 +10,8 @@ use Illuminate\Http\Request;
 Route::get('/', [ServiceController::class, 'index']); 
 Route::get('/categories', [CategoryController::class, 'search'])->name('search');
 
-Route::get('/sewa/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
+Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
 
-// Route::prefix('admin')->group(function () {
-//     Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
-
-//     Route::post('/serviceProvider/submit', [adminController::class, 'store'])->name('admin.serviceProvider.store'); 
-// });
 
      Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
 
