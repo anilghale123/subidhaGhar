@@ -23,19 +23,20 @@ Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming yo
 // Signup user ko lagi
 Route::post('/store', function (Request $req) {
      $req->validate([
+          
          'email' => 'required',
          'password' => 'required',
-         'username' => 'required',
+         'name' => 'required',
          'address' => 'required',
-         'phoneno' => 'required',
+         'phone_no' => 'required',
 
      ]);
      $parsedData = [
          'email' => $req->email,
          'password' => bcrypt($req->password),
-         'username' =>$req->username ,
+         'name' =>$req->name,
          'address' => $req->address,
-         'phoneno' => $req->phoneno,
+         'phone_no' => $req->phone_no,
      ];
 
      User::create($parsedData);

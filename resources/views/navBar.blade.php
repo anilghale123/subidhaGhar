@@ -12,7 +12,7 @@
   opacity: 0; 
   display: none; /* Initially hidden by default */
   transition: opacity 0.1s ease-in-out 2s; /* Delay hiding for 2 seconds */
-}
+   }
 
 .relative:hover .dropdown {
   opacity: 1;  

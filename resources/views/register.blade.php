@@ -20,9 +20,9 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="username" class="form-label">Name</label>
-                    <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
-                    @error('username')
+                    <label for="name" class="form-label">Name</label>
+                    <input name="name" type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
+                    @error('name')
                   <div class="text-danger">{{$message}}</div>
                   @enderror
                   </div>
@@ -43,9 +43,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="phoneno" class="form-label">Phone Number</label>
-                  <input name="phoneno" type="text" class="form-control" id="phoneno" aria-describedby="emailHelp" required>
-                  @error('phoneno')
+                  <label for="phone_no" class="form-label">Phone Number</label>
+                  <input name="phone_no" type="text" class="form-control" id="phoneno" aria-describedby="emailHelp" required>
+                  @error('phone_no')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
                 </div>
