@@ -4,7 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
     <title>NavBar</title>
+    <style>
+        .dropdown {
+  opacity: 0;    /* Initially hidden */
+  transition: opacity 0.2s ease-in-out; /* Add a fade effect */
+  
+}
+
+.relative:hover .dropdown {
+  opacity: 1;   /* Show on hover */
+  display: block;
+}
+
+    </style>
 </head>
 
 <body>
@@ -16,10 +31,18 @@
                 <li><a href="/about" class="{{ $activeLink === 'about' ? 'active' : '' }}">About</a></li>
                 <li><a href="/contact" class="{{ $activeLink === 'contact' ? 'active' : '' }}">Contact</a></li>
             </ul>
+
+            <div class="relative"> <img class="h-10 cursor-pointer" src="/user.png" alt="userIcon">
+  
+  <div class="dropdown absolute hidden top-12 right-0 bg-white shadow-md rounded-md p-4">  
+    <a href="/userProfile" class="block py-2 hover:bg-gray-100">View Profile</a> 
+    <a href="/logout" class="block py-2 hover:bg-gray-100">Logout</a>   
+  </div>
+</div>
+
+
         </div>
     </nav>
-
-
 </body>
 
 </html>

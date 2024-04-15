@@ -20,4 +20,8 @@ Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming yo
      Route::get('/booking', function(){
           return view('booking');
      });
+
+     Route::get('/userProfile', function(){
+          return view('userProfile');
+     });
     
