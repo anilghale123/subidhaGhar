@@ -11,6 +11,7 @@ use function Laravel\Prompts\alert;
 
 class adminController extends Controller
 {
+   
     function index()
     {
         $categories = Category::all(); // Fetch all categories from the database
