@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+
+    public function page()
+    {
+        return view('loginsignup');
+    }
+
     public function index()
 {
     $categories = Category::all(); // Fetch all categories from the database
@@ -14,4 +20,15 @@ class ServiceController extends Controller
 
     return view('welcome', compact('categories','results'),); // Pass data to the view
 }
+
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+    
 }
