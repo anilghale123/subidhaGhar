@@ -14,21 +14,21 @@
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                  <input name="email" type="email" class="form-control"  required>
                   @error('email')
                   <div class="text-danger">{{$message}}</div>
                   @enderror
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input name="name" type="text" class="form-control" id="username" aria-describedby="emailHelp" required>
+                    <input name="name" type="text" class="form-control"  required>
                     @error('name')
                   <div class="text-danger">{{$message}}</div>
                   @enderror
                   </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" name="password"class="form-control" id="exampleInputPassword1" required>
+                  <input type="password" name="password"class="form-control"  required>
                   @error('password')
                   <div class="text-danger">{{$message}}</div>
                   @enderror
@@ -36,7 +36,7 @@
 
                 <div class="mb-3">
                   <label for="address" class="form-label">address</label>
-                  <input name="address" type="text" class="form-control" id="address" aria-describedby="emailHelp" required>
+                  <input name="address" type="text" class="form-control" id="address"  required>
                   @error('address')
                 <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -44,7 +44,7 @@
 
                 <div class="mb-3">
                   <label for="phone_no" class="form-label">Phone Number</label>
-                  <input name="phone_no" type="text" class="form-control" id="phoneno" aria-describedby="emailHelp" required>
+                  <input name="phone_no" type="number" class="form-control" id="phoneno"  required>
                   @error('phone_no')
                 <div class="text-danger">{{$message}}</div>
                 @enderror

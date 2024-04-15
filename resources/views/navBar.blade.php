@@ -28,7 +28,7 @@
         <div class="flex gap-5 justify-around items-center">
             <div class="text-2xl"> <a href="">SewaGriha</a> </div>
             <ul class="flex gap-5">
-                <li><a href="/welcome" class="{{ $activeLink === 'home' ? 'active' : '' }}">Home</a></li>
+                <li><a href="/dashboard" class="{{ $activeLink === 'home' ? 'active' : '' }}">Home</a></li>
                 <li><a href="/about" class="{{ $activeLink === 'about' ? 'active' : '' }}">About</a></li>
                 <li><a href="/contact" class="{{ $activeLink === 'contact' ? 'active' : '' }}">Contact</a></li>
             </ul>

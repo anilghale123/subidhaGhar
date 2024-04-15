@@ -14,6 +14,7 @@ use App\Models\Category;
 
 Route::get('/', [ServiceController::class, 'page']); 
 
+
 Route::get('/dashboard', [ServiceController::class, 'index']); 
 
 Route::get('/categories', [CategoryController::class, 'search'])->name('search');
@@ -23,21 +24,22 @@ Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming yo
 // Signup user ko lagi
 Route::post('/store', function (Request $req) {
      $req->validate([
-          
+        'name' => 'required',
          'email' => 'required',
          'password' => 'required',
-         'name' => 'required',
-         'address' => 'required',
+          'address' => 'required',
          'phone_no' => 'required',
 
      ]);
      $parsedData = [
+        'name' =>$req->name,
          'email' => $req->email,
          'password' => bcrypt($req->password),
-         'name' =>$req->name,
          'address' => $req->address,
          'phone_no' => $req->phone_no,
      ];
+
+    //  dd($parsedData);
 
      User::create($parsedData);
      return redirect('/login');
