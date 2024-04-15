@@ -16,4 +16,8 @@ Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming yo
      Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
 
      Route::post('/submit-form', [adminController::class, 'store']);
+
+     Route::get('/booking', function(){
+          return view('booking');
+     });
     
