@@ -37,9 +37,10 @@ Route::post('/store', function (Request $req) {
          'address' => $req->address,
          'phoneno' => $req->phoneno,
      ];
+
      User::create($parsedData);
-     return redirect()->route('login')->with('method', 'post');
-     })->name('register-user');
+     return redirect('/login');
+});
 
  //to check for signin
  Route::post('/signin', function (Request $req) {
@@ -63,7 +64,7 @@ Route::post('/store', function (Request $req) {
      }
  });
 
- Route::post('/login', [ServiceController::class, 'login'])->name('login');
+ Route::get('/login', [ServiceController::class, 'login'])->name('login');
  Route::post('/register', [ServiceController::class, 'register']);
 
  
