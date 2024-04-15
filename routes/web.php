@@ -44,7 +44,7 @@ Route::post('/store', function (Request $req) {
 });
 
  //to check for signin
- Route::post('/signin', function (Request $req) {
+ Route::get('/signin', function (Request $req) {
      $req->validate([
          'email' => ['required', 'email'],
          'password' => 'required',

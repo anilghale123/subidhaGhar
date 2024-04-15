@@ -28,7 +28,7 @@
         <div class="flex gap-5 justify-around items-center">
             <div class="text-2xl"> <a href="">SewaGriha</a> </div>
             <ul class="flex gap-5">
-                <li><a href="/" class="{{ $activeLink === 'home' ? 'active' : '' }}">Home</a></li>
+                <li><a href="/welcome" class="{{ $activeLink === 'home' ? 'active' : '' }}">Home</a></li>
                 <li><a href="/about" class="{{ $activeLink === 'about' ? 'active' : '' }}">About</a></li>
                 <li><a href="/contact" class="{{ $activeLink === 'contact' ? 'active' : '' }}">Contact</a></li>
             </ul>
@@ -37,7 +37,7 @@
   
   <div class="dropdown absolute hidden top-12 right-0 bg-white shadow-md rounded-md p-4">  
     <a href="/userProfile" class="block py-2 hover:bg-gray-100">View Profile</a> 
-    <a href="/logout" class="block py-2 hover:bg-gray-100">Logout</a>   
+    <a href="/login" class="block py-2 hover:bg-gray-100">Logout</a>   
   </div>
 </div>
 

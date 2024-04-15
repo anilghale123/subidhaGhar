@@ -14,7 +14,7 @@
 
     <button type="submit" class="btn btn-primary">Register</button>
 </form >
-<form action="{{ route('login') }}" method="POST">
+<form action="{{ route('login') }}" method="get">
         @csrf
 
     <button type="submit" class="btn btn-primary">Login</button>

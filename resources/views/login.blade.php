@@ -13,7 +13,7 @@
           <div class="card-title">
             Login Form
           </div>
-            <form method="POST" action="/signin">
+            <form method="get" action="/signin">
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
