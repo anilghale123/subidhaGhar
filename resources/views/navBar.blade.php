@@ -8,16 +8,17 @@
 
     <title>NavBar</title>
     <style>
-        .dropdown {
-  opacity: 0;    /* Initially hidden */
-  transition: opacity 0.2s ease-in-out; /* Add a fade effect */
-  
+      .dropdown {
+  opacity: 0; 
+  display: none; /* Initially hidden by default */
+  transition: opacity 0.1s ease-in-out 2s; /* Delay hiding for 2 seconds */
 }
 
 .relative:hover .dropdown {
-  opacity: 1;   /* Show on hover */
-  display: block;
+  opacity: 1;  
+  display: block; /* Show on hover */
 }
+
 
     </style>
 </head>
