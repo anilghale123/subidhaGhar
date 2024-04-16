@@ -1,3 +1,7 @@
+@php
+    $loggedInUserId = auth()->id(); // Get the ID of the currently authenticated user
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,15 +60,22 @@
                 <p>No results found.</p>
             @else
             @foreach($results as $category)
-            <div class="card bg-white rounded-lg p-4 mt-4">
-                <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
-                <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
-                <p class="text-gray-700 mt-2">{{ $category->description }}</p>
-                <button onclick="window.location.href='/service/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                    Explore
-                </button>
-            </div>
-            @endforeach
+    <div class="card bg-white rounded-lg p-4 mt-4">
+        <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
+        <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
+        <p class="text-gray-700 mt-2">{{ $category->description }}</p>
+        
+        <!-- Display the button only if a user is logged in -->
+        @auth
+            <button onclick="window.location.href='/service/{{ $loggedInUserId }}/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                Explore
+            </button>
+        @endauth
+    </div>
+@endforeach
+
+            
+        
             @endif
 </div>
 

@@ -19,7 +19,7 @@ Route::get('/dashboard', [ServiceController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'search'])->name('search');
 
-Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming you have CategoryController
+Route::get('/service/{id1}/{id2}', [CategoryController::class, 'show']); // Assuming you have CategoryController
 
 // Signup user ko lagi
 Route::post('/store', function (Request $req) {
@@ -56,7 +56,8 @@ Route::post('/store', function (Request $req) {
          // password is correct
          $categories = Category::all(); // Fetch all categories from the database
          $results = $categories;
-         $users = Category::all();
+         $users = User::all();
+        //  $results1= $users;
      
          return view('welcome', compact('categories','results','users')); 
 
@@ -88,7 +89,10 @@ Route::post('/submit-form', [adminController::class, 'store']);
 // Route::post('/review', function(){
 //             return view('review');
 // });
-Route::get('/review/{id}', [CategoryController::class, 'display']); // Assuming you have CategoryController
+Route::post('/review',function()
+{
+    return view('review');
+}); // Assuming you have CategoryController
 
 
 Route::post('/reviewstore', [ServiceController::class, 'reviewinfo']);

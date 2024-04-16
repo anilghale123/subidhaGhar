@@ -30,5 +30,10 @@ class ServiceController extends Controller
     {
         return view('login');
     }
+
+    public function reviewinfo()
+    {
+        return view('login');
+    }
     
 }
