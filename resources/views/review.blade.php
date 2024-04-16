@@ -20,7 +20,7 @@
         <h1 class="text-3xl font-bold text-center mb-6">Rating Section</h1>
         <div class="flex justify-center">
           
-        <form action="/review" method="POST" class="w-full max-w-lg">
+        <form action="/reviewstore" method="POST" class="w-full max-w-lg">
                 @csrf
                 <textarea class="border border-gray-300 rounded-lg w-full p-2 mb-4" placeholder="Enter your comment" name="comment"></textarea>
 

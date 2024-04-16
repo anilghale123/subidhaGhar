@@ -53,4 +53,16 @@ public function show($id)
     return view('service', compact('category', 'serviceProviders')); 
 }
 
+// public function display($id)
+// {
+//     $user = Category::findOrFail($id);
+
+//     // Fetch related service providers 
+//     //$serviceProviders = Serviceprovider::all();
+//     $serviceProviders = $category->serviceProviders;
+
+
+//     return view('service', compact('category', 'serviceProviders')); 
+// }
+
 }

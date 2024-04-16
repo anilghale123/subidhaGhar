@@ -37,10 +37,18 @@
                     <form action="/review" method="POST">
                         @csrf
                     <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Rate {{$serviceProvider->name}}</button>
+                    @endforeach
+
+                    {{-- @foreach($users as $users)
+                    <button onclick="window.location.href='/review/{{ $users->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                        press 
+                    </button> --}}
+                    {{-- @endforeach --}}
+
                     </form>
 
+
                 </div>
-                @endforeach
 
 
                 </div>

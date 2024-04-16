@@ -17,8 +17,9 @@ return new class extends Migration
             $table->char('name',30)->nullable();
             $table->char('email',30);
             $table->char('password');
-            $table->char('address',30)->nullable();
             $table->unsignedBigInteger('phone_no')->nullable();
+            $table->char('address',30)->nullable();
+
 
         });
     }

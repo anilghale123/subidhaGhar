@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->date('booking_date');
             $table->char('status',20);
+            $table->char('address',30)->nullable();
+
 
             $table->foreignId('user_id')->constrained(
                 table: 'users', indexName: 'fk_bookings_users_id'

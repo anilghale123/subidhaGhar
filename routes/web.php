@@ -56,8 +56,9 @@ Route::post('/store', function (Request $req) {
          // password is correct
          $categories = Category::all(); // Fetch all categories from the database
          $results = $categories;
+         $users = Category::all();
      
-         return view('welcome', compact('categories','results')); 
+         return view('welcome', compact('categories','results','users')); 
 
 
      } else {
@@ -84,7 +85,12 @@ Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.s
     
 Route::post('/submit-form', [adminController::class, 'store']);
 
-Route::post('/review', function(){
-            return view('review');
-});
+// Route::post('/review', function(){
+//             return view('review');
+// });
+Route::get('/review/{id}', [CategoryController::class, 'display']); // Assuming you have CategoryController
+
+
+Route::post('/reviewstore', [ServiceController::class, 'reviewinfo']);
+
     
