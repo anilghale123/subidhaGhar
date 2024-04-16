@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <nav class="p-5 bg-white mb-3 text-lg font-semibold ">
+    <nav class="p-5 bg-white mb-3 text-lg font-semibold  ">
         <div class="flex gap-5 justify-around items-center">
             <div class="text-2xl"> <a href="">SewaGriha</a> </div>
             <ul class="flex gap-5">

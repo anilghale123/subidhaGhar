@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="bg-gray-50">
 @component('navbar', ['activeLink' => 'home']) @endcomponent
     <h1>Hey this is userProfile Section!!!</h1>
 

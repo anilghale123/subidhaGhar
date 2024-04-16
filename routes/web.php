@@ -83,4 +83,8 @@ Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.s
      });
     
 Route::post('/submit-form', [adminController::class, 'store']);
+
+Route::post('/review', function(){
+            return view('review');
+});
     

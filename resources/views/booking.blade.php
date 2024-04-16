@@ -24,10 +24,7 @@
 
                     <div class="mb-4">
                         <label for="time" class="block text-gray-700 font-medium mb-2">Select Time:</label>
-                        <select id="time" name="time" class="border border-gray-300 rounded-md px-3 py-2 w-full">
-                            <option value="09:00">9:00 AM</option>
-                            <option value="10:00">10:00 AM</option>
-                        </select>
+                       <input type="time" placeholder="select time" class="border border-gray-300 rounded-md px-3 py-2 w-full>
                     </div>
 
 

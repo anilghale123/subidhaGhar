@@ -56,7 +56,7 @@
                 <p>No results found.</p>
             @else
             @foreach($results as $category)
-            <div class="card bg-green-100 rounded-lg p-4 mt-4">
+            <div class="card bg-white rounded-lg p-4 mt-4">
                 <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
                 <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
                 <p class="text-gray-700 mt-2">{{ $category->description }}</p>
