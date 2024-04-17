@@ -5,6 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+@component('navbar', ['activeLink' => 'home']) @endcomponent
     <div class="container mx-auto p-6">
         
         <div class="bg-white shadow-md rounded-md p-6">
@@ -45,5 +46,7 @@
 
         </div>
     </div>
+
+    @component('footer') @endcomponent
 </body>
 </html>
