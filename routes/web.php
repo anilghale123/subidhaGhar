@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
-
- 
+use App\Models\review;
 
 Route::get('/', [ServiceController::class, 'page']); 
 
@@ -59,8 +58,12 @@ Route::post('/store', function (Request $req) {
          $users = User::all();
         //  $results1= $users;
      
-         return view('welcome', compact('categories','results','users')); 
+         $reviews = review::join('users', 'reviews.user_id', '=', 'users.id')
+         ->select('users.name', 'reviews.comment', 'reviews.rating')
+         ->get();
 
+// Redirect to the 'welcome' view or your intended landing page
+return view('welcome', compact('categories', 'results', 'reviews')); 
 
      } else {
          // login failed

@@ -1,3 +1,6 @@
+@props(['categories', 'results', 'reviews']) 
+
+
 @php
     $loggedInUserId = auth()->id(); // Get the ID of the currently authenticated user
 @endphp
@@ -59,23 +62,18 @@
             @if($results->isEmpty())
                 <p>No results found.</p>
             @else
+           
             @foreach($results as $category)
-    <div class="card bg-white rounded-lg p-4 mt-4">
-        <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
-        <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
-        <p class="text-gray-700 mt-2">{{ $category->description }}</p>
-        
-        <!-- Display the button only if a user is logged in -->
-        @auth
-            <button onclick="window.location.href='/service/{{ $loggedInUserId }}/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                Explore
-            </button>
-        @endauth
-    </div>
-@endforeach
-
-            
-        
+            <div class="card bg-white rounded-lg p-4 mt-4">
+                <h2 class="text-xl font-semibold">{{ $category->name }}</h2>
+                <img src="{{ asset('/' . strtolower($category->name) . '.jpg') }}" alt="{{ $category->name }}">
+                <p class="text-gray-700 mt-2">{{ $category->description }}</p>
+                <button onclick="window.location.href='/service/{{ $category->id }}'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                    Explore
+                </button>
+            </div>
+            @endforeach
+         
             @endif
 </div>
 
@@ -91,31 +89,15 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 auto-cols-fr gap-5">
 
-                <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">Prabal Kuinkel</h2>
-                    <p class="text-gray-700 mt-2">Prabal Ko Experience Yeta</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
+            @foreach ($reviews as $review)
+    <div class="card bg-white rounded-lg p-4 mt-4">
+      <!-- <h2 class="text-xl font-semibold">{{ $review->name }}</h2>  -->
+      <p class="text-gray-700 mt-2">{{ $review->comment }}</p>
+      <p>{{ str_repeat('⭐', $review->rating) }}</p> 
+    </div>
+  @endforeach
 
-                <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">Sova Kushwaha</h2>
-                    <p class="text-gray-700 mt-2">Sova Ko Experience Yeta</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-
-                <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">Anil Ghale</h2>
-                    <p class="text-gray-700 mt-2">Anil Ko Experience Yeta</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-
-                <div class="card bg-white rounded-lg p-4 mt-4">
-                    <h2 class="text-xl font-semibold">Swornim Thapa</h2>
-                    <p class="text-gray-700 mt-2">Swornim Ko Experience Yeta</p>
-                    <p>⭐⭐⭐⭐⭐</p>
-                </div>
-
-
+               
             </div>
 
         </section>

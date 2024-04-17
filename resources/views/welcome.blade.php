@@ -10,7 +10,7 @@
 <body>
 @component('navbar', ['activeLink' => 'home']) @endcomponent
     
-    @component('body', ['categories' => $categories, 'results' => $results,'users'=>$users]) @endcomponent
+@component('body', ['categories' => $categories, 'results' => $results,'users'=>$users, 'reviews' => $reviews]) @endcomponent
 
     @component('footer') @endcomponent
 
