@@ -1,3 +1,7 @@
+@php
+    $loggedInUserId = auth()->id(); // Get the ID of the currently authenticated user
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
