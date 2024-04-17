@@ -63,7 +63,7 @@ Route::post('/store', function (Request $req) {
          ->get();
 
 // Redirect to the 'welcome' view or your intended landing page
-return view('welcome', compact('categories', 'results', 'reviews')); 
+return view('welcome', compact('categories', 'results', 'reviews','users')); 
 
      } else {
          // login failed
