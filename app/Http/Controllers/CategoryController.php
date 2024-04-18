@@ -41,13 +41,25 @@ class CategoryController extends Controller
 }
 
    
-public function show($id)
+public function show($id1,$id2)
 {
-    $category = Category::findOrFail($id);
+    $category = Category::findOrFail($id2);
 
     // Fetch related service providers 
     //$serviceProviders = Serviceprovider::all();
     $serviceProviders = $category->serviceProviders;
+
+
+    return view('service', compact('category', 'serviceProviders')); 
+}
+
+public function display($id)
+{
+    $user = Category::findOrFail($id);
+
+    // Fetch related service providers 
+    //$serviceProviders = Serviceprovider::all();
+    $serviceProviders = $user->serviceProviders;
 
 
     return view('service', compact('category', 'serviceProviders')); 

@@ -10,7 +10,7 @@
      <section class="mt-8">
             <div class="footer-wrapper text-center">
                 <footer>
-                    <p class="text-gray-600 p-5">© All rights reserved to Sopranil</p>
+                    <p class="text-gray-600 p-5 mt-auto bottom-0 ">© All rights reserved to Sopranil</p>
                 </footer>
             </div>
         </section>
