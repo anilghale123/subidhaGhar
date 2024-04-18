@@ -25,7 +25,7 @@
 
                 <div class="card bg-red-100 rounded-lg p-4 mt-4 overflow-hidden ">
                     <h2 class="text-xl font-semibold">{{ $serviceProvider->name }}</h2>
-                    <h2>{{ $serviceProvider -> image}}</h2>
+                    
                     
                     <img src="{{ $serviceProvider -> image}}" alt="{{ $serviceProvider->category }}">
                     <p class="text-gray-700 mt-2">Phone Number:{{ $serviceProvider->phone_no }}</p>
