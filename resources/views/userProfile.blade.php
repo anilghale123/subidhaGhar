@@ -33,7 +33,7 @@
                         <th class="text-left p-2">Service Provider</th>
                         <th class="text-left p-2">Date</th>
                         <th class="text-left p-2">Status</th>
-                        <th class="text-left p-2">Test</th>
+                        
                     </tr>
                  </thead>
                 <tbody>
