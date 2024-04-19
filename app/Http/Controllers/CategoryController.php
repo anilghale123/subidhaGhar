@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\review;
 use App\Models\Serviceprovider;
 use Illuminate\Http\Request;
 
@@ -36,8 +37,11 @@ class CategoryController extends Controller
     if (!empty($categoryId) && $categoryId !== 'all') {
         $results = $results->where('id', $categoryId);
     }
+    $reviews = review::join('users', 'reviews.user_id', '=', 'users.id')
+    ->select('users.name', 'reviews.comment', 'reviews.rating')
+    ->get();
 
-    return view('welcome', compact('results', 'categories'));
+    return view('welcome', compact('results', 'categories','reviews'));
 }
 
    
