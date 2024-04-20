@@ -20,13 +20,25 @@
         <h1 class="text-3xl font-bold text-center mb-6">Rating Section</h1>
         <div class="flex justify-center">
           
-        <form action="/review" method="POST" class="w-full max-w-lg">
+        <form action="/review/{{$serviceProvider -> id}}/submit" method="POST" class="w-full max-w-lg">
                 @csrf
+                <div class=" mb-4">
+                        <label for="serviceProviderId" class="block text-gray-700 font-medium mb-2">Service Provider ID:</label>
+                        <input type="text" id="s_id" name="s_id" value="{{$serviceProvider -> id}}" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="UserId" class="block text-gray-700 font-medium mb-2">User ID:</label>
+                        <input type="text" id="user_id" name="user_id" value="{{ $userId }}" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+                    </div>
                 <textarea class="border border-gray-300 rounded-lg w-full p-2 mb-4" placeholder="Enter your comment" name="comment"></textarea>
 
                 <div class="flex items-center mb-4">
                     <p class="mr-2">Stars:</p>
+                   
                     <div class="flex">
+
+
                         <input type="radio" name="rating" value="5" id="star-5" class="hidden">
                         <label for="star-5" class=" text-white bg-yellow-400 hover:bg-yellow-500 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">5</label>
 

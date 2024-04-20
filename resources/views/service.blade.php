@@ -36,7 +36,7 @@
                         @csrf 
                       <button>Book Now</button>
                       </form>
-                    <form action="/review" method="POST">
+                    <form action="/review/{{$serviceProvider -> id}}" method="get">
                         @csrf
                     <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Rate {{$serviceProvider->name}}</button>
                     </form>

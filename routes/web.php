@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\reviewController;
 use App\Models\booking;
 use Illuminate\Support\Facades\Route;
 use App\Models\Serviceprovider;
@@ -83,7 +84,9 @@ Route::get('/booking/{serviceProviderId}', [BookingController::class, 'book'])->
 
      Route::post('/booking/{serviceProviderId}/confirm', [BookingController::class, 'store'])->name('booking.confirm');
 
-   
+     Route::get('/review/{serviceProviderId}', [reviewController::class, 'review'])->name('review');
+     Route::post('/review/{serviceProviderId}/submit', [reviewController::class, 'store'])->name('reviewSubmit');
+
    
      Route::get('/userProfile', function(){
        
