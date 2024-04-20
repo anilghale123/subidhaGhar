@@ -16,26 +16,27 @@
             <h1 class="text-2xl font-bold mb-4">Book with </h1>
 
             <div class="bg-white rounded-lg shadow-md p-6">
-                <form method="POST" action="/booking/confirm">
-                    @csrf <div class="mb-4">
+                <form method="POST" action="/booking/{{$serviceProvider -> id}}/confirm">
+                    @csrf
+                    <div class="mb-4">
                         <label for="date" class="block text-gray-700 font-medium mb-2">Select Date:</label>
                         <input type="date" id="date" name="date" class="border border-gray-300 rounded-md px-3 py-2 w-full">
                     </div>
 
                     <div class="mb-4">
                         <label for="time" class="block text-gray-700 font-medium mb-2">Select Time:</label>
-                       <input type="time" placeholder="select time" class="border border-gray-300 rounded-md px-3 py-2 w-full>
+                        <input type="time" placeholder="select time" name="time" class="border border-gray-300 rounded-md px-3 py-2 w-full>
                     </div>
 
 
-                    <div class="mb-4">
+                    <div class=" mb-4">
                         <label for="serviceProviderId" class="block text-gray-700 font-medium mb-2">Service Provider ID:</label>
-                        <input type="text" id="serviceProviderId" name="serviceProviderId" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+                        <input type="text" id="s_id" name="s_id" value="{{ $serviceProvider->id }}" class="border border-gray-300 rounded-md px-3 py-2 w-full">
                     </div>
 
                     <div class="mb-4">
                         <label for="UserId" class="block text-gray-700 font-medium mb-2">User ID:</label>
-                        <input type="text" id="userID" name="userid" class="border border-gray-300 rounded-md px-3 py-2 w-full">
+                        <input type="text" id="user_id" name="user_id" value="{{ $userId }}" class="border border-gray-300 rounded-md px-3 py-2 w-full">
                     </div>
 
                     <div class="mb-4">

@@ -3,6 +3,8 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\BookingController;
+use App\Models\booking;
 use Illuminate\Support\Facades\Route;
 use App\Models\Serviceprovider;
 use Illuminate\Http\Request;
@@ -77,12 +79,18 @@ return view('welcome', compact('categories', 'results', 'reviews'));
 Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
 
 
-     Route::get('/booking', function(){
-          return view('booking');
-     });
+Route::get('/booking/{serviceProviderId}', [BookingController::class, 'book'])->name('booking');
 
+     Route::post('/booking/{serviceProviderId}/confirm', [BookingController::class, 'store'])->name('booking.confirm');
+
+   
+   
      Route::get('/userProfile', function(){
-          return view('userProfile');
+       
+        $bookings = booking::where('user_id', auth()->id())
+        ->get(); 
+
+return view('userProfile', compact('bookings'));
      });
     
 Route::post('/submit-form', [adminController::class, 'store']);

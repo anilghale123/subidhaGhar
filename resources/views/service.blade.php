@@ -32,8 +32,10 @@
                     <p class="text-gray-700 mt-2">Rating : ⭐⭐⭐⭐</p>
                     <p class="text-gray-700 mt-2">Active Status: {{ $serviceProvider->status }}</p>
                    
-                    <button onclick="window.location.href='/booking'" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Book Now</button>
-                  
+                      <form action="/booking/{{$serviceProvider -> id}}" method="get"  class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                        @csrf 
+                      <button>Book Now</button>
+                      </form>
                     <form action="/review" method="POST">
                         @csrf
                     <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Rate {{$serviceProvider->name}}</button>

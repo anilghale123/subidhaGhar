@@ -30,18 +30,28 @@
             <table class="w-full">
                  <thead>
                     <tr>
-                        <th class="text-left p-2">Service Provider</th>
                         <th class="text-left p-2">Date</th>
-                        <th class="text-left p-2">Status</th>
+                        <th class="text-left p-2">Time</th>
+                        <th class="text-left p-2">Location</th>
+                        <th class="text-left p-2">UserId</th>
+                        <th class="text-left p-2">ServiceProvider Id</th>
+
+
+
+
                         
                     </tr>
                  </thead>
                 <tbody>
+                    @foreach($bookings as $result)
                     <tr>
-                        <td class="p-2">Acme Service Co.</td>
-                        <td class="p-2">2024-05-12</td>
-                        <td class="p-2">Confirmed</td>
+                        <td class="p-2">{{$result -> date }}</td>
+                        <td class="p-2">{{$result -> time }}</td>
+                        <td class="p-2">{{$result -> location }}</td>
+                        <td class="p-2">{{$result -> user_id }}</td>
+                        <td class="p-2">{{$result -> s_id }}</td>
                     </tr>
+                    @endforeach
                     </tbody>
             </table>
 
