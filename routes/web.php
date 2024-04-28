@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\review;
 
-Route::get('/', [ServiceController::class, 'page']); 
+
+Route::get('/', [ServiceController::class, 'page']);
 
 
-Route::get('/dashboard', [ServiceController::class, 'index']); 
+Route::get('/dashboard', [ServiceController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'search'])->name('search');
 
@@ -25,80 +26,95 @@ Route::get('/service/{id}', [CategoryController::class, 'show']); // Assuming yo
 
 // Signup user ko lagi
 Route::post('/store', function (Request $req) {
-     $req->validate([
+    $req->validate([
         'name' => 'required',
-         'email' => 'required',
-         'password' => 'required',
-          'address' => 'required',
-         'phone_no' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'address' => 'required',
+        'phone_no' => 'required',
 
-     ]);
-     $parsedData = [
-        'name' =>$req->name,
-         'email' => $req->email,
-         'password' => bcrypt($req->password),
-         'address' => $req->address,
-         'phone_no' => $req->phone_no,
-     ];
+    ]);
+    $parsedData = [
+        'name' => $req->name,
+        'email' => $req->email,
+        'password' => bcrypt($req->password),
+        'address' => $req->address,
+        'phone_no' => $req->phone_no,
+    ];
 
     //  dd($parsedData);
 
-     User::create($parsedData);
-     return redirect('/login');
+    User::create($parsedData);
+    return redirect('/login');
 });
 
- //to check for signin
- Route::get('/signin', function (Request $req) {
-     $req->validate([
-         'email' => ['required', 'email'],
-         'password' => 'required',
-     ]);
- 
-     if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
-         // password is correct
-         $categories = Category::all(); // Fetch all categories from the database
-         $results = $categories;
-     
-         $reviews = review::join('users', 'reviews.user_id', '=', 'users.id')
-         ->select('users.name', 'reviews.comment', 'reviews.rating')
-         ->get();
+//to check for signin
+Route::get('/signin', function (Request $req) {
+    $req->validate([
+        'email' => ['required', 'email'],
+        'password' => 'required',
+    ]);
 
-// Redirect to the 'welcome' view or your intended landing page
-return view('welcome', compact('categories', 'results', 'reviews')); 
+    if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
+        // password is correct
+        $categories = Category::all(); // Fetch all categories from the database
+        $results = $categories;
 
-     } else {
-         // login failed
-          // If authentication fails, return the login view with an error message
+        $reviews = review::join('users', 'reviews.user_id', '=', 'users.id')
+            ->select('users.name', 'reviews.comment', 'reviews.rating')
+            ->get();
+
+        // Redirect to the 'welcome' view or your intended landing page
+        return view('welcome', compact('categories', 'results', 'reviews'));
+    } else {
+        // login failed
+        // If authentication fails, return the login view with an error message
         return back()->withInput()->withErrors(['email' => 'Wrong credentials. Please try again.']);
-     }
- });
+    }
+});
 
- Route::get('/login', [ServiceController::class, 'login'])->name('login');
- Route::post('/register', [ServiceController::class, 'register']);
+Route::get('/login', [ServiceController::class, 'login'])->name('login');
+Route::post('/register', [ServiceController::class, 'register']);
 
- 
-Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index'); 
+
+Route::get('/serviceProvider', [adminController::class, 'index'])->name('admin.serviceProvider.index');
 
 
 Route::get('/booking/{serviceProviderId}', [BookingController::class, 'book'])->name('booking');
 
-     Route::post('/booking/{serviceProviderId}/confirm', [BookingController::class, 'store'])->name('booking.confirm');
+Route::post('/booking/{serviceProviderId}/confirm', [BookingController::class, 'store'])->name('booking.confirm');
 
-     Route::get('/review/{serviceProviderId}', [reviewController::class, 'review'])->name('review');
-     Route::post('/review/{serviceProviderId}/submit', [reviewController::class, 'store'])->name('reviewSubmit');
+Route::get('/review/{serviceProviderId}', [reviewController::class, 'review'])->name('review');
+Route::post('/review/{serviceProviderId}/submit', [reviewController::class, 'store'])->name('reviewSubmit');
 
-   
-     Route::get('/userProfile', function(){
-       
-        $bookings = booking::where('user_id', auth()->id())
-        ->get(); 
 
-return view('userProfile', compact('bookings'));
-     });
-    
+Route::get('/userProfile', function () {
+
+    $bookings = booking::where('user_id', auth()->id())
+        ->get();
+    // $serviceProvider = Serviceprovider::all();
+    // $bookings->load('serviceProvider');
+
+    return view('userProfile', compact('bookings'));
+});
+
 Route::post('/submit-form', [adminController::class, 'store']);
 
-Route::post('/review', function(){
-            return view('review');
+Route::post('/review', function () {
+    return view('review');
 });
-    
+
+Route::post('/update-profile/{id}', function ($id, Request $request) {
+    $user = User::find($id);
+    if ($user) {
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->address = $request->input('address');
+        $user->phone_no = $request->input('phone');
+        $user->update();
+
+        return redirect('/userProfile')->with('success', 'Profile updated successfully');
+    } else {
+        return redirect('/userProfile')->with('error', 'User not found');
+    }
+});

@@ -13,10 +13,10 @@
 
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-blue-100">
     @component('navbar', ['activeLink' => 'home']) @endcomponent
 
-    <div class="container mx-auto mt-10 bg-white p-4 shadow-lg rounded-lg w-80">
+    <div class="container mx-auto mt-10 bg-blue-50 p-4 shadow-lg rounded-lg w-80">
         <h1 class="text-3xl font-bold text-center mb-6">Rating Section</h1>
         <div class="flex justify-center">
           
@@ -56,12 +56,12 @@
                     </div>
                 </div>
 
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ml-12">Submit Review</button>
+                <button type="submit" class="bg-green-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-12">Submit Review</button>
            
             </form>
         </div>
     </div>
 
-    @component('footer') @endcomponent
+  
 </body>
 </html>

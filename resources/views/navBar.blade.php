@@ -18,17 +18,20 @@
   opacity: 1;  
   display: block; /* Show on hover */
 }
-
+  
+ul li a:hover{
+   color: red;
+}
 
     </style>
 </head>
 
 <body>
-    <nav class="p-5 bg-white mb-3 text-lg font-semibold  ">
+    <nav class="p-3 bg-blue-100  mb-3 text-lg font-semibold shadow-2xl ">
         <div class="flex gap-5 justify-around items-center">
-            <div class="text-2xl"> <a href="">SewaGriha</a> </div>
+            <div class="text-2xl"> <a href="">SubidhaGhar</a> </div>
             <ul class="flex gap-5">
-                <li><a href="/dashboard" class="{{ $activeLink === 'home' ? 'active' : '' }}">Home</a></li>
+                <li><a href="/dashboard" class="{{ $activeLink === 'home' ? 'active' : '' }} ">Home</a></li>
                 <li><a href="/about" class="{{ $activeLink === 'about' ? 'active' : '' }}">About</a></li>
                 <li><a href="/contact" class="{{ $activeLink === 'contact' ? 'active' : '' }}">Contact</a></li>
             </ul>

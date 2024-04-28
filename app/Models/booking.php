@@ -16,6 +16,7 @@ class booking extends Model
         'notes',
         'status',
         'user_id', 
-        's_id'  // Make sure the spelling is accurate
+        's_id',
+        'name'  // Make sure the spelling is accurate
     ];
 }

@@ -15,24 +15,28 @@ class BookingController extends Controller
         $request->validate([
             'date' => 'required|date|after_or_equal:today', 
             'time' => 'required', 
-            's_id' => 'required|exists:serviceproviders,id', 
+            'name' => 'required', 
             'user_id' => 'required|exists:users,id',                   
             'phoneNumber' => 'required', 
             'location' => 'required',
             'notes' => 'required',
+            's_id'  => 'required',
             // ...add validation for 'notes' if needed
         ]);
         
         
         // 2. Create Booking Record
         $booking = booking::create([
-            's_id' => $request->input('s_id'), 
+            'name' => $request->input('name'), 
             'user_id' => $request->input('user_id'),
             'date' => $request->input('date'),
             'time' => $request->input('time'),
             'phone_number' => $request->input('phoneNumber'),
             'location' => $request->input('location'),
             'notes' => $request->input('notes'), 
+            's_id' => $request->input('s_id'), 
+
+            
            
         ]);
       

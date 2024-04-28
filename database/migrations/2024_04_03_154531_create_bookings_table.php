@@ -30,6 +30,8 @@ return new class extends Migration
             $table->foreignId('s_id')->constrained(
                 table: 'serviceproviders', indexName: 'fk_bookings_serviceproviders_id'
             );
+
+            $table->string('name');
         });
     }
 

@@ -14,6 +14,6 @@ class review extends Model
         'comment', 
         'rating', 
         'user_id', 
-        's_id'  // Make sure the spelling is accurate
+        's_id'  
     ];
 }
